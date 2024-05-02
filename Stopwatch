@@ -1,0 +1,34 @@
+package com.jdbc;
+
+public class Stopwatch {
+    private long startTime = 0;
+    private long endTime = 0;
+    private boolean running = false;
+
+    public void start() {
+        if (running == false) {
+            startTime = System.currentTimeMillis();
+            running = true;
+        }
+    }
+
+    public void stop() {
+        if (running == true) {
+        	endTime = System.currentTimeMillis();
+            running = false;
+        }
+    }
+
+    public void reset() {
+        startTime = 0;
+        running = false;
+    }
+
+    public long howLong() {
+        if (running == true) {
+            return endTime - startTime;
+        } else {
+            return 0;
+        }
+    }
+}
